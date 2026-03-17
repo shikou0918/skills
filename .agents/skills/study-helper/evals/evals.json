@@ -1,0 +1,17 @@
+{
+  "skill_name": "study-helper",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "OAuth2.0の仕組みを、プログラミング初心者にわかるように身近な例えを使って説明してください。最後に、理解度を確認するためのクイズを2問出してください。",
+      "expected_output": "An explanation of OAuth2.0 using a non-technical analogy (like a valet key or a hotel key card), followed by 2 knowledge retention questions.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "Reactのサーバーコンポーネント(RSC)とクライアントコンポーネントの違いを、表形式で比較して要約してください。独学中のエンジニアがポイントを把握できるようにしてください。",
+      "expected_output": "A Markdown table comparing RSC and Client Components, highlighting key differences like rendering location and interactivity, optimized for self-study.",
+      "files": []
+    }
+  ]
+}
