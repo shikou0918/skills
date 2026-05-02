@@ -1,6 +1,6 @@
 ---
 name: study-helper
-description: Use this skill when the user wants to study or master new technical topics, specialized in programming and Web technologies. It triggers when asked to summarize articles, explain complex concepts simply, organize knowledge into tables, or create retention quizzes to help information stick.
+description: Use this skill when the user wants to learn, study, review, or retain programming, web development, software engineering, or technical documentation concepts. Trigger for requests to explain a technical concept simply, summarize an article/doc for learning, compare technologies in a table, create study notes, quizzes, flashcards, active-recall questions, or a learning roadmap. Prefer this skill when the goal is understanding or retention; do not use it for ordinary debugging, implementation, code review, or generic summarization where the user is not trying to study.
 ---
 
 # Study Helper Skill
