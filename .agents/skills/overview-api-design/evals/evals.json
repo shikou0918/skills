@@ -1,0 +1,13 @@
+[
+  {
+    "name": "overview_design_to_openapi",
+    "prompt": "overview-design.mdをもとにAPI設計とOpenAPI 3.1仕様を作成してください。",
+    "expected_behavior": [
+      "Reads the overview design as the source of truth.",
+      "Creates or updates api-design.md and openapi.yaml near the source document.",
+      "Uses REST-oriented resource paths and explains assumptions.",
+      "Includes request/response schemas, validation rules, common errors, and OpenAPI 3.1 components.",
+      "Does not assume fixed CSV column counts unless specified by the overview design."
+    ]
+  }
+]

@@ -1,0 +1,3 @@
+display_name: Overview API Design
+short_description: overview-design.mdからAPI設計とOpenAPI YAMLを作成する
+default_prompt: overview-design.mdをもとにapi-design.mdとopenapi.yamlを作成してください
