@@ -31,6 +31,7 @@ Use this skill to turn an existing overview design into a concrete API contract.
      - `POST /classification-runs` instead of `POST /analysis/reapply`
    - Keep `/api/v1` only if the overview design or user explicitly wants path-based versioning; otherwise put versioning in the OpenAPI `servers` URL or leave it out for small local apps.
    - Do not invent authentication if the overview design says the app is local or single-user.
+   - For process resources such as import previews or classification runs, state whether the operation is stateless, ephemeral, or persisted. If the source does not define lifecycle or durability, list the viable alternatives and mark the persistence semantics as an open question instead of silently choosing one.
 
 4. Write `api-design.md`.
    Include these sections when applicable:
@@ -129,6 +130,7 @@ For CSV import flows, separate preview from persistence:
 - Preview request: accepts a file or file reference, parses it, infers mapping candidates, and returns preview rows plus validation errors.
 - Import request: accepts a confirmed mapping or preview token/file hash, then persists transactions.
 - The spec should not assume fixed CSV column counts unless the overview design explicitly says so.
+- If preview uses a token or file hash, document whether that token is persisted, expires, or can be recomputed from the uploaded content. Do not let the endpoint name alone imply storage behavior.
 
 ## Final Response
 

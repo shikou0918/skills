@@ -1,6 +1,6 @@
 ---
 name: openapi-spec-generation
-description: Generate and maintain OpenAPI 3.1 specifications from code, design-first specs, and validation patterns. Use when creating API documentation, generating SDKs, or ensuring API contract compliance.
+description: Generate and maintain OpenAPI 3.1 specifications for REST APIs, especially design-first specs and documented validation/SDK workflows. Use when creating API documentation, generating SDKs from an OpenAPI contract, or ensuring API contract compliance. For code-first generation, use directly when the framework is covered by the bundled examples; for other stacks, first identify the missing tooling assumptions instead of assuming full code extraction support.
 ---
 
 # OpenAPI Spec Generation
@@ -10,11 +10,13 @@ Comprehensive patterns for creating, maintaining, and validating OpenAPI 3.1 spe
 ## When to Use This Skill
 
 - Creating API documentation from scratch
-- Generating OpenAPI specs from existing code
+- Generating OpenAPI specs from existing code when the framework/tooling path is known
 - Designing API contracts (design-first approach)
 - Validating API implementations against specs
 - Generating client SDKs from specs
 - Setting up API documentation portals
+
+For code-first stacks not covered by the concrete examples in this skill, do not imply the skill already contains a complete extractor recipe. Inventory routes, request/response types, validation tags, auth, and error handling; then name the missing generator/tooling choice as an assumption or open question before producing the contract plan.
 
 ## Core Concepts
 
