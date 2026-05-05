@@ -1,0 +1,13 @@
+[
+  {
+    "name": "overview_design_to_ui_design",
+    "prompt": "overview-design.mdとopenapi.yamlをもとにUI設計書を作成してください。",
+    "expected_behavior": [
+      "Reads overview-design.md as the primary source.",
+      "Uses api-design.md or openapi.yaml when available to map UI actions to API operations.",
+      "Creates or updates ui-design.md near the source document.",
+      "Includes screen-by-screen specifications, UI states, validation, errors, and API mapping.",
+      "Does not implement frontend code unless explicitly asked."
+    ]
+  }
+]

@@ -1,0 +1,3 @@
+display_name: Overview UI Design
+short_description: overview-design.mdからUI設計書を作成する
+default_prompt: overview-design.mdとAPI設計をもとにui-design.mdを作成してください
