@@ -1,0 +1,3 @@
+display_name: Frontend Coding Standards
+short_description: TypeScript frontend実装の汎用コーディング規約
+default_prompt: フロントエンド実装ではこのコーディング規約に従ってください
