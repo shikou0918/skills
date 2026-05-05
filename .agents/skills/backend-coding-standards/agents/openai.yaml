@@ -1,3 +1,0 @@
-display_name: Backend Coding Standards
-short_description: Clean Architecture前提のバックエンド汎用コーディング規約
-default_prompt: バックエンド実装ではClean Architectureとこのコーディング規約に従ってください
