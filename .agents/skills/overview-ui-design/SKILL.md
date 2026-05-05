@@ -7,12 +7,15 @@ description: Create a Japanese UI design document from overview-design.md plus o
 
 Use this skill to turn an overview design and API design into an implementation-ready UI design document. The usual output is `ui-design.md` beside `overview-design.md`.
 
+Write the UI design artifact in Japanese unless the user explicitly asks for another language.
+
 ## Workflow
 
 1. Locate source documents.
    - Prefer paths named by the user.
    - If no path is given, look for `overview-design.md` in the current project.
    - Read `api-design.md` and `openapi.yaml` when available to align screens with API contracts.
+   - If API design files are missing, still produce `ui-design.md`; mark API mappings as provisional and use operation intents instead of inventing endpoint paths or methods.
    - Preserve the user's latest chat decisions over older document content.
 
 2. Extract UI-relevant intent.
@@ -20,6 +23,7 @@ Use this skill to turn an overview design and API design into an implementation-
    - Screen list and user workflows.
    - Domain entities and data shown on each screen.
    - API endpoints used by each screen.
+   - When API contracts are unavailable, logical operation intents used by each screen, such as "明細一覧取得", "カテゴリ更新", or "CSVプレビュー作成".
    - Validation, error handling, loading, empty, success, and destructive-action states.
    - Device/browser assumptions and accessibility constraints.
 
@@ -40,7 +44,7 @@ Use this skill to turn an overview design and API design into an implementation-
    - Forms and validation
    - Tables, filters, sorting, pagination
    - Dialogs and confirmations
-   - API mapping by screen
+   - API mapping by screen, or provisional operation mapping when API contracts are unavailable
    - Accessibility and responsive behavior
    - Open questions
 
@@ -54,6 +58,7 @@ Use this skill to turn an overview design and API design into an implementation-
    - State transitions
    - Validation and errors
    - Related API operations
+   - If related API operations are not finalized, write `未確定` and describe the intended operation without concrete endpoint names.
 
 6. For import or wizard flows, define step states explicitly.
    - Initial state
@@ -74,6 +79,28 @@ Use this skill to turn an overview design and API design into an implementation-
    - The design does not assume fixed CSV columns unless the source documents explicitly do.
    - Destructive actions include confirmation behavior.
    - The document is specific enough for frontend implementation to start.
+
+## Destructive Action Pattern
+
+For delete, overwrite, bulk apply, or import-removal flows, specify:
+
+- Object name shown to the user.
+- Affected counts when knowable.
+- Irreversible effects or rollback expectations.
+- Confirmation button label.
+- Disabled/loading state while the action runs.
+- Success transition after completion.
+- Error recovery path when the action fails.
+
+## API Mapping Fallback
+
+When `api-design.md` or `openapi.yaml` is unavailable:
+
+- Include a provisional API/operation mapping section.
+- Use operation intent names instead of endpoint paths, for example `明細一覧取得` or `分類ルール再適用`.
+- Mark method/path/status/schema as `未確定`.
+- Add open questions for missing backend contracts.
+- Do not write concrete endpoint names unless they are present in the source documents or latest user instruction.
 
 ## Output Conventions
 
