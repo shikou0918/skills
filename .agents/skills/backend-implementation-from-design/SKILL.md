@@ -68,6 +68,33 @@ If design documents conflict, prefer the user's latest instruction, then `openap
 - If no transaction abstraction exists, introduce a narrow `TxManager` / `UnitOfWork` style interface consumed by the usecase. Do not pass `*gorm.DB` into inner layers.
 - Preferred Go transaction shape when no local pattern exists: `WithinTx(ctx, func(ctx context.Context, repos TxRepositories) error) error`, or the smallest equivalent interface needed by the usecase.
 
+## Reference Go Layout
+
+When no backend layout exists, use this as the default Go Clean Architecture layout. It is inspired by practical projects such as `budget-book`, but is a starting point rather than a rigid template:
+
+```text
+backend/
+  cmd/api/                    server startup, routing, dependency wiring
+  entity/ or domain/          domain entities, value objects, domain rules
+  usecase/                    application workflows, repository interfaces
+  adapter/http/               handlers, request/response DTOs, error mapping
+  infrastructure/database/    DB connection, migrations, persistence models
+  infrastructure/repository/  GORM/SQL repository implementations
+```
+
+If the existing project uses names such as `interface/handler` instead of `adapter/http`, follow the local convention. Keep the dependency direction and responsibility split more important than exact directory names.
+
+## DTO, Entity, and Model Separation
+
+Prefer separating structs by reason to change:
+
+- Entity/domain structs represent business concepts and rules. They should not carry `json`, `gorm`, HTTP, SQL, or framework tags by default.
+- Request/response DTOs represent API input/output. They live near the HTTP adapter and carry `json` tags.
+- Persistence models represent database storage. They live in infrastructure and carry `gorm` tags or DB column details.
+- Mapper functions belong at layer boundaries, for example `toTransactionResponse`, `toTransactionModel`, and `toTransactionEntity`.
+
+Do not collapse DTOs, domain entities, and GORM models into one struct unless the existing project already does so and the requested change is intentionally small. If you keep them collapsed for consistency, avoid expanding that pattern into new shared code without calling out the tradeoff.
+
 ## Go Defaults
 
 When implementing Go backend code:
