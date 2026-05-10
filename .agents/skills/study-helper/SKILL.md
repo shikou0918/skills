@@ -34,7 +34,13 @@ Prefer output-based learning over automatic quizzes:
 - **Explain Back**: Ask the user to explain the concept in their own words, such as a 3-line summary or a coworker-facing explanation.
 - **Mini Task**: Provide a small hands-on prompt when the concept is practical, such as modifying an example, tracing a request flow, or choosing between two designs.
 - **Reflection Questions**: Provide 1-3 short questions when the user is clearly studying or asks for retention help.
-- **Quiz / Flashcards**: Use only when the user asks for quizzes, flashcards, exam prep, interview prep, or memorization support.
+- **Quiz / Flashcards**: Use only when the user asks for quizzes, flashcards, exam prep, interview prep, or memorization support. If the count is unspecified, default to 3-5 quiz questions and 5-8 flashcards.
+
+### 4. Study Material Defaults
+When creating study group notes, workshop material, or learning handouts:
+- If duration is unspecified, assume a 45-60 minute session and make the agenda easy to adjust.
+- If hands-on work is unspecified, focus on concept explanation first and keep commands or exercises optional.
+- If the user says quizzes or understanding checks are unnecessary, omit them entirely.
 
 ## Guidelines for Responses
 
@@ -44,6 +50,7 @@ Prefer output-based learning over automatic quizzes:
 - **Diagrams**: Prefer Mermaid for flows, architecture relationships, state transitions, and responsibility boundaries. Keep diagrams small enough to read.
 - **Actionable Steps**: Provide "Next Steps" for further study when the user is planning a learning path or asks what to do next.
 - **Lightweight Answers**: For quick questions, answer directly and skip quizzes, flashcards, and lengthy study scaffolding.
+- **Localized References**: When creating Japanese learning materials, prefer official Japanese documentation if available. Use known or verified official URLs instead of guessing localized URLs. If the Japanese page is machine-translated or potentially ambiguous, note that the English original is authoritative.
 
 ## Output Format Example
 
